@@ -128,6 +128,52 @@ button {
   font-family: inherit;
 }
 
+
+.pricing__rate {
+  font-weight: bold;
+}
+
+.pricing__rate > span {
+  font-size: 2rem;
+  color: var(--dark-desaturated-blue);
+}
+
+.pricing__frequency {  
+}
+
+.pricing__slider {
+  width: 100%;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: linear-gradient(to right, var(--soft-cyan) 0%, var(--soft-cyan) 50%, var(--light-grayish-blue1) 50%, var(--light-grayish-blue1) 100%);
+  border-radius: 1rem;
+  opacity: 0.8;
+  height: 0.5rem;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+/* input[type=range]::-ms-thumb,
+input[type=range]::-moz-range-thumb, */
+input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("./images/icon-slider.svg");
+  background-color: var(--strong-cyan);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center center;
+  appearance: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%; 
+  cursor: pointer;
+}
+
 .sr-only {
   position:absolute;
   left:-10000px;

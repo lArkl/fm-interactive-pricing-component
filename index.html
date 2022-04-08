@@ -18,26 +18,30 @@
       Sign-up for our 30-day trial. No credit card required.   
     </header>
     <section class="pricing">
-      <h2>
-        Pageviews
-        $ /month
-      </h2>
+      <h2 class="sr-only">Pricing rates</h2>
+      <div class="pricing__rate">
+        100K PAGEVIEWS
+      </div>
       <div class="pricing__slider">
         <input type="range" value="50">
       </div>
       <div class="pricing__rate">
+        <span>$</span> /month  
+      </div>
+
+
+      <div class="pricing__frequency">
         <span>
           Monthly Billing
         </span>
         <label class="pricing__switch">
-          <!-- Billing frequency Switch-->
           <input type="checkbox">
           <span></span>  
         </label>
         <span>
           Yearly Billing
         </span>
-        <span>
+        <span class="pricing__discount">
           25%
           <span>discount</span>
         </span>  
