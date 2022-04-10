@@ -27,7 +27,6 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-image: url("./images/bg-pattern.svg");
   background-repeat: no-repeat;
@@ -38,25 +37,43 @@ main {
 .pricing {
   background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 0.2rem 0.2rem 0.5rem var(--light-grayish-blue2),
-              -0.2rem 0.2rem 0.5rem var(--light-grayish-blue2);
+  box-shadow: 0.1rem 0.1rem 2rem var(--very-pale-blue),
+              -0.1rem 0.1rem 2rem var(--pale-blue);
   width: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.pricing > div {
+  padding-inline: 1.4rem;
+}
+
+header {
+  width: 20rem;
+  background-image: url("./images/pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--dark-desaturated-blue);
+  margin: 0.4rem;
 }
 
 h2 {
   font-size: 1rem;
-  /* color: var(--pale-blue); */
 }
 
 .pricing__switch {
@@ -97,6 +114,11 @@ input[type=checkbox]:checked + span {
   background-color: var(--strong-cyan);
 }
 
+input[type=checkbox]:hover + span {
+  background-color: var(--strong-cyan);
+  opacity: 0.7;
+}
+
 input[type=checkbox]:checked + span::before {
   -webkit-transform: translateX(1rem);
   -ms-transform: translateX(1rem);
@@ -108,10 +130,16 @@ input[type=checkbox]:checked + span::before {
   width: 100%;
 }
 
+hr {
+  width: 100%;
+  border: 1px solid var(--very-pale-blue);
+}
+
 ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 0.75rem;
 }
 
 li {
@@ -123,14 +151,17 @@ button {
   color: var(--pale-blue);
   border: none;
   border-radius: 1.7rem;
-  width: 12rem;
-  padding: 1rem 0;
+  width: 10rem;
+  padding: 0.7rem 0;
+  font-size: 0.75rem;
   font-family: inherit;
 }
 
 
 .pricing__rate {
   font-weight: bold;
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
 }
 
 .pricing__rate > span {
@@ -138,7 +169,24 @@ button {
   color: var(--dark-desaturated-blue);
 }
 
-.pricing__frequency {  
+.pricing__frequency {
+  font-size: 0.75rem;
+  display: flex;
+  width: 100%;
+  margin-left: 4rem;
+  gap: 0.7rem;
+}
+
+.pricing__discount {
+  background-color: var(--light-grayish-red);
+  color: var(--light-red);
+  border-radius: 0.6rem;
+  font-size: 0.9em;
+  padding: 0.2rem 0.4rem;
+}
+
+.pricing__discount > span {
+  display: none;
 }
 
 .pricing__slider {
@@ -193,4 +241,20 @@ input[type=range]::-webkit-slider-thumb {
 
 .attribution a { 
   color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 700px) {
+  .pricing {
+    width: 30rem;
+  }
+
+  .pricing__frequency {
+    /* justify-content: center; */
+    margin-left: 13.3rem;
+
+  }
+
+  .pricing__discount > span {
+    display: inline;
+  }
 }
