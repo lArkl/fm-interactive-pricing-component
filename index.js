@@ -7,16 +7,22 @@ const YEAR_DISCOUNT = 0.25;
 const PAGE_RATE = { MAX: 200, MIN: 0};
 const PRICING_RATE = { MAX: 32, MIN: 0}; // Monhly limits
 
+const NUMBER_FORMAT = new Intl.NumberFormat('en-US', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+})
+
 class AppState {
   constructor() {
     this.isMonthly = true;
-    this.pricingRate = 16;
+    this.pricingRate = NUMBER_FORMAT.format(16);
+    pricingRateRef.textContent = `$${this.pricingRate}`;
   }
   applyDiscount(pricingRate) {
-    return Math.floor(pricingRate * (1 - YEAR_DISCOUNT));
+    return NUMBER_FORMAT.format(pricingRate * (1 - YEAR_DISCOUNT));
   }
   revertDiscount(pricingRate) {
-    return Math.floor(pricingRate / (1 - YEAR_DISCOUNT));
+    return NUMBER_FORMAT.format(pricingRate / (1 - YEAR_DISCOUNT));
   }
   changeFrequency() {
     this.isMonthly = !this.isMonthly
@@ -32,12 +38,12 @@ class AppState {
   }
   changePageRate(rate, maxRange=100) {
     const actRate = rate / maxRange;
-    let pricingRate = Math.floor(actRate * (PRICING_RATE.MAX - PRICING_RATE.MIN) + PRICING_RATE.MIN);
+    let pricingRate = actRate * (PRICING_RATE.MAX - PRICING_RATE.MIN) + PRICING_RATE.MIN;
     pricingRate = this.isMonthly? pricingRate : this.applyDiscount(pricingRate);
+    this.updatePricingRate(pricingRate);
 
     const pageRate = Math.floor(actRate * (PAGE_RATE.MAX - PAGE_RATE.MIN) + PAGE_RATE.MIN);
     this.updatePageRate(pageRate);
-    this.updatePricingRate(pricingRate);
   }
 }
 
