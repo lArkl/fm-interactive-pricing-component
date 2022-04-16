@@ -31,6 +31,7 @@ main {
   background-repeat: no-repeat;
   background-size: 100% 50%;
   height: 91vh;
+  justify-content: space-between;
 }
 
 .pricing {
@@ -153,17 +154,23 @@ button {
   padding: 0.7rem 0;
   font-size: 0.75rem;
   font-family: inherit;
-  margin-top: 0.7rem;
 }
 
-
 .pricing__rate {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 0.5rem;
+  width: 100%;
+  justify-items: center;
+}
+
+.pricing__rate--value {
   font-weight: bold;
   font-size: 0.7rem;
   letter-spacing: 0.1rem;
 }
 
-.pricing__rate > span {
+.pricing__rate--value > span {
   font-size: 2rem;
   color: var(--dark-desaturated-blue);
 }
@@ -189,6 +196,14 @@ button {
 }
 
 .pricing__slider {
+  width: 100%;
+}
+
+.pricing__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   width: 100%;
 }
 
@@ -221,6 +236,11 @@ input[type=range]::-webkit-slider-thumb {
   cursor: pointer;
 }
 
+input[type=range]::-webkit-slider-thumb:hover {
+  box-shadow: -0.5rem 1rem 1.5rem var(--soft-cyan), 
+              0.5rem 1rem 1.5rem var(--soft-cyan);
+}
+
 .sr-only {
   position:absolute;
   left:-10000px;
@@ -243,8 +263,41 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 @media screen and (min-width: 700px) {
+
+  body {
+    font-size: 18px;
+  }
+
+  main {
+    justify-content: flex-start;
+  }
+
   .pricing {
     width: 30rem;
+  }
+
+  .pricing > div {
+    padding-inline: 2rem;
+  } 
+
+  .pricing__rate > div:nth-child(1) {
+    grid-area: page;
+    justify-self: flex-start;
+  }
+  .pricing__rate > div:nth-child(2) {
+    grid-area: slider;
+  }
+  .pricing__rate > div:nth-child(3) {
+    justify-self: flex-end;
+    grid-area: price;
+  }
+
+  .pricing__rate {
+    grid-template-areas: "page price"
+                          "slider slider";
+    align-items: center;
+    grid-template-rows: auto;
+    margin-bottom: 1rem;
   }
 
   .pricing__frequency {
@@ -255,5 +308,14 @@ input[type=range]::-webkit-slider-thumb {
 
   .pricing__discount > span {
     display: inline;
+  }
+
+  .pricing__info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  ul {
+    align-items: flex-start;   
   }
 }
