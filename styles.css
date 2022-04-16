@@ -17,9 +17,12 @@
   --dark-desaturated-blue: hsl(227, 35%, 25%);
 }
 
+html {
+  font-size: 15px;
+}
+
 body {
   font-family: 'Manrope', sans-serif;
-  font-size: 15px;
   color: var(--grayish-blue);
 }
 
@@ -264,7 +267,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 
 @media screen and (min-width: 700px) {
 
-  body {
+  html {
     font-size: 18px;
   }
 
