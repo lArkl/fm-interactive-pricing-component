@@ -1,7 +1,8 @@
 const switchRef = document.querySelector(".pricing__switch > input");
 const rangeRef = document.querySelector(".pricing__slider > input");
-const pricingRateRef = document.querySelector(".pricing__rate > span");
-const pageRateRef = document.querySelector(".pricing > .pricing__rate");
+const pricingRateRef = document.querySelector(".pricing__rate--value > span");
+const pageRateRef = document.querySelector(".pricing > .pricing__rate--value");
+const startBtnRef = document.querySelector("button");
 
 const YEAR_DISCOUNT = 0.25;
 const PAGE_RATE = { MAX: 200, MIN: 0};
@@ -60,9 +61,17 @@ rangeRef.addEventListener('input', (ev) => {
   APP_STATE.changePageRate(rate);
 });
 
+
+startBtnRef.addEventListener("click", () => {
+  console.log("Trial started!")
+})
+
 function styleRange(rangeRef, value) {
-  rangeRef.style.background = `linear-gradient(to right, var(--soft-cyan) 0%, 
-  var(--soft-cyan) ${value}%, 
-  var(--light-grayish-blue1) ${value}%, 
-  var(--light-grayish-blue1) 100%)`
+  rangeRef.style.background = `
+    linear-gradient(to right,
+    var(--soft-cyan) 0%, 
+    var(--soft-cyan) ${value}%, 
+    var(--light-grayish-blue1) ${value}%, 
+    var(--light-grayish-blue1) 100%)
+  `
 }
